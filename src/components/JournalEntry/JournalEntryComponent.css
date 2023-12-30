@@ -2,6 +2,7 @@
   outline: 0;
   border-width: 0 0 2px;
   width: 40%;
+  max-width: 770px;
   color: #4d4d5a;
   font-size: 16px;
   font-family: "Open Sans", serif;
@@ -10,7 +11,7 @@
 
 
 .container {
-    width: 100%;
+  width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
