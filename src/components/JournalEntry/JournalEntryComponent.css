@@ -1,0 +1,49 @@
+.input {
+  outline: 0;
+  border-width: 0 0 2px;
+  width: 40%;
+  color: #4d4d5a;
+  font-size: 16px;
+  font-family: "Open Sans", serif;
+}
+
+
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+.input-wrapper {
+  width: 100%;
+}
+
+/* Phone */
+@media (max-width: 490px){
+  .input-wrapper{
+    margin-bottom: 5em;
+  }
+  .input{
+    width: 90%;
+    display: inline-block;
+    margin-bottom: 5%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 668px){
+  .input{
+    width: 80%;
+  }
+}
+
+
+/* Dual window */
+@media (max-width: 960px){
+  .input{
+    width: 80%;
+  }
+}

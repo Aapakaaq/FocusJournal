@@ -1,0 +1,22 @@
+.wrapper {
+    display: inline;
+}
+.export-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 25px;
+    color: #4d4d5a;
+}
+
+/* Phone portrait mode*/
+@media (max-width: 400px){
+    .export-button{
+        display: block;
+        font-size: 35px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
