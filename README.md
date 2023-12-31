@@ -2,6 +2,8 @@
 
 A journaling website that focuses on writing without judgment by displaying only the two latest lines that you have written. The content is stored in the cache and can be exported to a TXT file.
 
+The project is in a very early state. 
+
 Future plans includes:
 1. Being able to create a new journal 
 2. Option to submit line on dot rather than enter - or other possible character
