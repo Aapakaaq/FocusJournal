@@ -6,6 +6,9 @@ import "./JournalEntryComponent.css"
 import { FixedSizedQueue } from "../../types/FixedSizeQueue";
 import { JournalContext } from "../../contexts/JournalContext";
 import { JournalContextType } from "../../types/Journal";
+import NewJournalComponent from "../NewJournal/NewJournalComponent";
+import { RecentEntriesContext} from "../../contexts/RecentEntriesContext";
+import { RecentEntriesContextType } from "../../types/RecentEntries";
 
 
 interface JournalEntryProps {
@@ -15,6 +18,7 @@ interface JournalEntryProps {
 export default function JournalEntryComponent({recentEntries }: JournalEntryProps ) {
     const [entry, setEntry] = useState<string>('');
     const {addJournalEntry, getJournalData} = useContext(JournalContext) as JournalContextType;
+    const {addEntry} = useContext(RecentEntriesContext) as RecentEntriesContextType;
 
     function handleTextChange(newValue: string): void {
         setEntry(newValue);
@@ -23,24 +27,27 @@ export default function JournalEntryComponent({recentEntries }: JournalEntryProp
     function keyDownHandler(event: React.KeyboardEvent<HTMLInputElement>): void{
         if (event.code === "Enter") {
             addJournalEntry(entry)
-            recentEntries.enqueue(entry)
+            addEntry(entry)
             setEntry('');
         }
     }
 
     return (
         <div className="container">
-        <RecentEntriesComponent recentEntries = {recentEntries.getAll()}/>
-            <div className='input-wrapper'>
-                <input className="input"
-                    value = {entry}
-                    onChange = {e => handleTextChange(e.target.value)}
-                    autoFocus = {true}
-                    onKeyDown = {keyDownHandler}
-                    />
+                <RecentEntriesComponent />
+                    <div className='input-wrapper'>
+                        <input className="input"
+                            value = {entry}
+                            onChange = {e => handleTextChange(e.target.value)}
+                            autoFocus = {true}
+                            onKeyDown = {keyDownHandler}
+                            />
 
-                <ExportComponent content={getJournalData()} fileName={"test.txt"}/>
-            </div>
+                    </div>
+                    <div className ="icon-wrapper">
+                        <ExportComponent content={getJournalData()} fileName={"test.txt"}/>
+                        <NewJournalComponent />
+                    </div>
         </div>
     );
 }

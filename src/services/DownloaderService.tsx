@@ -17,7 +17,9 @@ export class DownloaderService  implements IDownloaderService {
                     blobType: string='text/plain'): void{
 
 
-        if (!content) throw (new InvalidOperationError("Empty content"));
+        if (!content){
+            throw (new InvalidOperationError("Empty content"));
+        }
 
         if (!this.isMimeTypeAllowed(blobType)) {
             throw (new NotSupportedError("Invalid or disallowed MIME type"));

@@ -1,9 +1,9 @@
-import { createContext } from 'react'
+import { createContext, ReactNode } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { IJournal, JournalContextType } from '../types/Journal'
 
 interface IProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const initialState: IJournal = {

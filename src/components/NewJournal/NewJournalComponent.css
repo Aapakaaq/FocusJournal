@@ -1,0 +1,19 @@
+.clear-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 25px;
+    color: #4d4d5a;
+}
+
+@media (max-width: 400px){
+    .clear-button{
+        display: block;
+        font-size: 35px;
+        text-align: center;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

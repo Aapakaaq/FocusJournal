@@ -31,10 +31,9 @@ export class FixedSizedQueue<T> {
         return this.data.slice();
     }
 
-    public fill(item: T) : void {
-        this.data.fill(item);
+    public emptyQueue() {
+        this.data = new Array<T>(this.maxSize);
     }
-
 
     private dequeue(): T | undefined {
         return this.data.shift();

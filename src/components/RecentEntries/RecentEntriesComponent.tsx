@@ -1,21 +1,20 @@
 import "./RecentEntriesComponent.css"
-import {useRef} from 'react';
+import { useContext, useRef} from 'react';
 import { PhonePortrait, TabletPortrait } from "../../services/ScreenDimensions";
 import { Int } from "../../types/Int";
+import { RecentEntriesContext } from "../../contexts/RecentEntriesContext";
+import { RecentEntriesContextType } from "../../types/RecentEntries";
 
 interface RecentEntryProps{
-    recentEntries: string[];
     prefix? : string;
     maxCharacters? : Int
 }
 
-
-
-export default function RecentEntriesComponent({recentEntries,
-                                                prefix ="...",
+export default function RecentEntriesComponent({prefix ="...",
                                                 maxCharacters=75 as Int}: RecentEntryProps){
 
     const windowWidth = useRef(window.innerWidth);
+    const {getRecentEntries} = useContext(RecentEntriesContext) as RecentEntriesContextType;
 
     function trimEntries(entries: string[]){
         return entries.map((entry : string) => {
@@ -34,7 +33,7 @@ export default function RecentEntriesComponent({recentEntries,
         })
     }
 
-    const trimmedEntries = trimEntries(recentEntries);
+    const trimmedEntries = trimEntries(getRecentEntries());
 
     return (
         <div className="recent-entries">

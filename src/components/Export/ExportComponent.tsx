@@ -1,5 +1,5 @@
-import { DownCircleOutlined } from "@ant-design/icons";
-import { useMemo } from "react";
+import { DownloadOutlined} from "@ant-design/icons";
+import { useMemo, useState } from "react";
 import { DownloaderService } from "../../services/DownloaderService";
 import { ExportJournalService } from "../../services/ExportJournalService";
 import { PureStringConversionStrategy } from "../../services/ConversionStrategies/PureStringConversionStrategy";
@@ -18,7 +18,7 @@ export default function ExportComponent({content, fileName} : ExportProps){
     const exportJournalService = useMemo(() => new ExportJournalService(downloaderService),
                                          [downloaderService]);
     const strategy = new PureStringConversionStrategy();
-
+    const [toolTipMessage, setTooltipMessage] = useState('Download journal')
     function onClickHandler(){
         if (content.length === 0) return;
 
@@ -29,16 +29,20 @@ export default function ExportComponent({content, fileName} : ExportProps){
         catch(err)
         {
             if(err instanceof InvalidOperationError){
-                //TODO
+                setTooltipMessage("Journal is empty");
             }
         }
       }
 
+    function resetToolTipMessage(){
+        setTooltipMessage('Download journal');
+    }
+
     return(
         <div className="wrapper">
-            <a data-tooltip-id="export-tooltip" data-tooltip-content="Download your journal" data-tooltip-place="top">
-                <button className="export-button" onClick={onClickHandler}>
-                <DownCircleOutlined />
+            <a data-tooltip-id="export-tooltip" data-tooltip-content={toolTipMessage} data-tooltip-place="top">
+            <button className="export-button" onClick={onClickHandler} onMouseOut={resetToolTipMessage} >
+                <DownloadOutlined />
                 </button>
             </a>
             <Tooltip id="export-tooltip" />
