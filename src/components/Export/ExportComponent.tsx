@@ -1,5 +1,5 @@
 import { DownloadOutlined} from "@ant-design/icons";
-import { useMemo, useState, useRef } from "react";
+import { useMemo, useState} from "react";
 import { DownloaderService } from "../../services/DownloaderService";
 import { ExportJournalService } from "../../services/ExportJournalService";
 import { PureStringConversionStrategy } from "../../services/ConversionStrategies/PureStringConversionStrategy";
