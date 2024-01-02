@@ -8,16 +8,6 @@
   font-family: "Open Sans", serif;
 }
 
-
-.icon-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: 1.5em;
-  gap: 1.5em;
-}
-
 .container {
   width: 100%;
     display: flex;
@@ -40,11 +30,6 @@
     width: 90%;
     display: inline-block;
     margin-bottom: 5%;
-  }
-
-  .icon-wrapper {
-    margin-top: 1em;
-    gap: 5em;
   }
 }
 

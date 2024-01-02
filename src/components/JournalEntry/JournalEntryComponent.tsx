@@ -1,15 +1,12 @@
 import { useContext, useState } from "react";
-
-import ExportComponent from "../Export/ExportComponent";
 import RecentEntriesComponent from "../RecentEntries/RecentEntriesComponent";
 import "./JournalEntryComponent.css"
 import { FixedSizedQueue } from "../../types/FixedSizeQueue";
 import { JournalContext } from "../../contexts/JournalContext";
 import { JournalContextType } from "../../types/Journal";
-import NewJournalComponent from "../NewJournal/NewJournalComponent";
 import { RecentEntriesContext} from "../../contexts/RecentEntriesContext";
 import { RecentEntriesContextType } from "../../types/RecentEntries";
-
+import IconTrayComponent from "../IconTray/IconTrayComponent";
 
 interface JournalEntryProps {
     recentEntries: FixedSizedQueue<string>;
@@ -17,7 +14,7 @@ interface JournalEntryProps {
 
 export default function JournalEntryComponent({recentEntries }: JournalEntryProps ) {
     const [entry, setEntry] = useState<string>('');
-    const {addJournalEntry, getJournalData} = useContext(JournalContext) as JournalContextType;
+    const {addJournalEntry} = useContext(JournalContext) as JournalContextType;
     const {addEntry} = useContext(RecentEntriesContext) as RecentEntriesContextType;
 
     function handleTextChange(newValue: string): void {
@@ -32,6 +29,7 @@ export default function JournalEntryComponent({recentEntries }: JournalEntryProp
         }
     }
 
+    // TODO: Move to InputPage.tsx
     return (
         <div className="container">
                 <RecentEntriesComponent />
@@ -42,12 +40,8 @@ export default function JournalEntryComponent({recentEntries }: JournalEntryProp
                             autoFocus = {true}
                             onKeyDown = {keyDownHandler}
                             />
-
                     </div>
-                    <div className ="icon-wrapper">
-                        <ExportComponent content={getJournalData()} fileName={"test.txt"}/>
-                        <NewJournalComponent />
-                    </div>
+            <IconTrayComponent />
         </div>
     );
 }
