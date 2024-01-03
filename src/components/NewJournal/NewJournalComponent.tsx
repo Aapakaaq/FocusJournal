@@ -16,9 +16,12 @@ export default function NewJournalComponent(){
 
     const storageKey = 'showConfirmDialog';
     const [showConfirmDialog, setShowConfirmDialog] = useLocalStorage<boolean>(storageKey, true);
+
     const defaultMessage = "Clear journal";
     const [tooltipMessage, setTooltipMessage] = useState(defaultMessage);
+
     const [tooltipState, setTooltipState] = useState<VariantType | undefined>("info");
+
     const tooltipDelayMs = 500;
 
     function onClickHandler(): void {
