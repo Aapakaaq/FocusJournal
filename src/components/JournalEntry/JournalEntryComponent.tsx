@@ -8,11 +8,7 @@ import { RecentEntriesContext} from "../../contexts/RecentEntriesContext";
 import { RecentEntriesContextType } from "../../types/RecentEntries";
 import IconTrayComponent from "../IconTray/IconTrayComponent";
 
-interface JournalEntryProps {
-    recentEntries: FixedSizedQueue<string>;
-}
-
-export default function JournalEntryComponent({recentEntries }: JournalEntryProps ) {
+export default function JournalEntryComponent() {
     const [entry, setEntry] = useState<string>('');
     const {addJournalEntry} = useContext(JournalContext) as JournalContextType;
     const {addEntry} = useContext(RecentEntriesContext) as RecentEntriesContextType;
@@ -29,7 +25,7 @@ export default function JournalEntryComponent({recentEntries }: JournalEntryProp
         }
     }
 
-    // TODO: Move to InputPage.tsx
+    // TODO: Move try component to InputPage.tsx
     return (
         <div className="container">
                 <RecentEntriesComponent />

@@ -7,16 +7,12 @@ import "./InputPage.css"
 import { RecentEntriesProvider } from "../contexts/RecentEntriesContext";
 
 export default function SingleInputPage() {
-    const maxRecentEntries = 2 as Int;
-    const recentEntries = useMemo(() =>
-        new FixedSizedQueue<string>(maxRecentEntries), [maxRecentEntries]);
-
     return (
 
         <RecentEntriesProvider>
         <JournalProvider>
             <div className='container'>
-                <JournalEntryComponent recentEntries={recentEntries} />
+                <JournalEntryComponent  />
             </div>
         </JournalProvider>
 
