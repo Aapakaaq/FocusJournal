@@ -5,11 +5,10 @@ A journaling website that focuses on writing without judgment by displaying only
 The project is in a very early state. 
 
 Future plans includes:
-1. Being able to create a new journal 
-2. Option to submit line on dot rather than enter - or other possible character
-3. Export to different files
-4. Dark mode
-5. A more throughout README file :-)
+1. Option to submit line on dot rather than enter - or other possible character
+2. Export to different files
+3. Dark mode
+4. A more throughout README file :-)
 
 
 
