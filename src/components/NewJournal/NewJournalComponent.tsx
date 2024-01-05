@@ -20,7 +20,7 @@ export default function NewJournalComponent(){
     const defaultMessage = "Clear journal";
     const [tooltipMessage, setTooltipMessage] = useState(defaultMessage);
 
-    const [tooltipState, setTooltipState] = useState<VariantType | undefined>("info");
+    const [tooltipState, setTooltipState] = useState<VariantType>("info");
 
     const tooltipDelayMs = 500;
 
@@ -65,7 +65,7 @@ export default function NewJournalComponent(){
                     label: "No",
                 },
                 {
-                    label: "Yes, don\'t show this again",
+                    label: "Yes, don't show this again",
                     onClick: () => {
                         setShowConfirmDialog(false);
                         clearJournal();
