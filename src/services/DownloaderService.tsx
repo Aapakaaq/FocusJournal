@@ -5,30 +5,29 @@ import { IDownloaderService } from "./IDownloaderService";
 
 
 export class DownloaderService  implements IDownloaderService {
-    private allowedMimeTypes: string[] = ['text/plain', 'application/pdf'];
     private timeoutMS = 500;
 
     /* Downloads file to the browsers download destination
      * @param The filename including extension.
      * @param content The content for the file to be downloaded
      * @param blobType
-     * @throws {NotSupportedError} If the given blobType is not supported
+     * @throws {InvalidOperationError} If the content is empty or if missing file name.
      */
     public download(file : string='journal.txt', content : string,
                     blobType: BlobTypes = BlobTypes.TextPlain): void{
-
 
         if (!content){
             throw (new InvalidOperationError("Empty content"));
         }
 
-        if (!this.isMimeTypeAllowed(blobType)) {
-            throw (new NotSupportedError("Invalid or disallowed MIME type"));
+        if (!file) {
+            throw (new InvalidOperationError("Missing file name"));
         }
 
         const sanitizedFileName = this.sanitizeFileName(file);
 
         const element = document.createElement('a');
+
         const blob = new Blob([content], {
             type: blobType
         });
@@ -50,9 +49,5 @@ export class DownloaderService  implements IDownloaderService {
 
     private sanitizeFileName(fileName: string): string {
         return fileName.replace(/[^\w.]/g, '');
-    }
-
-    private isMimeTypeAllowed(mimeType: string): boolean {
-        return this.allowedMimeTypes.includes(mimeType);
     }
 }

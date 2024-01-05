@@ -1,5 +1,5 @@
 import { RecentEntriesContextType } from "../types/RecentEntries";
-import { createContext, useMemo } from 'react'
+import { createContext, useMemo, useState } from 'react'
 import { FixedSizedQueue } from "../types/FixedSizeQueue";
 import { Int } from "../types/Int";
 

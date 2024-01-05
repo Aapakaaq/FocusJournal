@@ -5,5 +5,4 @@ export type RecentEntriesContextType = {
     addEntry(entry: string): void;
     getRecentEntries() : string[];
     clearEntries(): void;
-
 }
