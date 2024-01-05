@@ -14,7 +14,6 @@ export function RecentEntriesProvider({children}: IProps) {
     const recentEntries = useMemo(() =>
         new FixedSizedQueue<string>(maxEntries), [maxEntries]);
 
-
     function addEntry(entry: string): void {
         recentEntries.enqueue(entry);
     }
@@ -28,7 +27,8 @@ export function RecentEntriesProvider({children}: IProps) {
     }
 
     return(
-        <RecentEntriesContext.Provider value={{recentEntries, addEntry, getRecentEntries, clearEntries}}>
+        <RecentEntriesContext.Provider value={{recentEntries, addEntry,
+                                               getRecentEntries, clearEntries}}>
             {children}
         </RecentEntriesContext.Provider>
     )

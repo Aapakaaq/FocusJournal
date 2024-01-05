@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import RecentEntriesComponent from "../RecentEntries/RecentEntriesComponent";
 import "./JournalEntryComponent.css"
-import { FixedSizedQueue } from "../../types/FixedSizeQueue";
 import { JournalContext } from "../../contexts/JournalContext";
 import { JournalContextType } from "../../types/Journal";
 import { RecentEntriesContext} from "../../contexts/RecentEntriesContext";

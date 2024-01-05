@@ -25,6 +25,8 @@ export default function NewJournalComponent(){
     const tooltipDelayMs = 500;
 
     function onClickHandler(): void {
+        // TODO: Cursor should refocus on input after delete.
+        //       The logic for the refocus should not be here
         try {
             if (showConfirmDialog){
                 showConfirmation();
@@ -71,7 +73,7 @@ export default function NewJournalComponent(){
                     }
                 }
             ]
-            });
+        });
     }
 
     return(

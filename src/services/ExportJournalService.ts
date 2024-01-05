@@ -1,4 +1,5 @@
 import { InvalidOperationError } from "../Errors/InvalidOperationError";
+import { BlobTypes } from "../types/BlobTypes";
 import {IDataToContentStrategy}  from "./ConversionStrategies/IDataToContentStrategy"
 import { IDownloaderService } from "./IDownloaderService";
 
@@ -16,7 +17,7 @@ export class ExportJournalService {
      */
     public parseFromStringArray(data : string[],
                                       file : string,
-                                      blobType : string,
+                                      blobType : BlobTypes,
                                       strategy : IDataToContentStrategy)  {
 
         const stringContent : string = strategy.convertData(data);

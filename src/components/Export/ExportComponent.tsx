@@ -7,6 +7,7 @@ import "./ExportComponent.css"
 import { InvalidOperationError } from "../../Errors/InvalidOperationError";
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip, VariantType } from 'react-tooltip'
+import { BlobTypes } from "../../types/BlobTypes";
 
 interface ExportProps {
     content: Array<string>;
@@ -30,7 +31,7 @@ export default function ExportComponent({content, fileName} : ExportProps){
 
         try
         {
-            exportJournalService.parseFromStringArray(content, fileName, "text/plain",strategy);
+            exportJournalService.parseFromStringArray(content, fileName, BlobTypes.TextPlain,strategy);
             setTooltipMessage("Downloading journal...")
             setTooltipState('success');
         }

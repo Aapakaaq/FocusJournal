@@ -1,5 +1,6 @@
 import { InvalidOperationError } from "../Errors/InvalidOperationError";
 import { NotSupportedError } from "../Errors/NotSupportedError";
+import { BlobTypes } from "../types/BlobTypes";
 import { IDownloaderService } from "./IDownloaderService";
 
 
@@ -14,7 +15,7 @@ export class DownloaderService  implements IDownloaderService {
      * @throws {NotSupportedError} If the given blobType is not supported
      */
     public download(file : string='journal.txt', content : string,
-                    blobType: string='text/plain'): void{
+                    blobType: BlobTypes = BlobTypes.TextPlain): void{
 
 
         if (!content){
